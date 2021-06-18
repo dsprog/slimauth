@@ -10,4 +10,4 @@
     <h1>Hello Word of Blade</h1>
     <?php echo $__env->yieldContent('content'); ?>
 </body>
-</html><?php /**PATH D:\sites\CleanCodeStudioSlim4Auth\resources\views/layouts/app.blade.php ENDPATH**/ ?>
+</html><?php /**PATH D:\sites\Estudos\EstudoPhp\slimauth\resources\views/layouts/app.blade.php ENDPATH**/ ?>

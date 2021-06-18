@@ -2,18 +2,20 @@
 
 namespace Dsprog\Http\Controllers;
 
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\RequestInterface as Request;
+use Dsprog\Support\View;
 
 class WelcomeController
 {
-    public function index($request, $response) {
-        $response->getBody()->write('Olá');
-        return $response;
+    public function index(View $view, $response) {
+
+        return $view('auth.home',[
+            'name' => 'HomeController:index Hello Word'
+        ]);
     }
 
-    public function show($request, $response, $name) {
-        $response->getBody()->write('Olá '.$name);
-        return $response;
+    public function show(View $view, $response, $name) {
+        return $view('auth.home',[
+            'name' => 'HomeController:index Hello Word - '. $name
+        ]);
     }
 }
