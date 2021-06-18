@@ -1,5 +1,6 @@
 <?php
 
+use Dsprog\Http\Controllers\WelcomeController;
 use Slim\App;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\RequestInterface as Request;
@@ -11,8 +12,6 @@ return function(App $app) {
         return view($response, 'auth.home', compact('name'));
     });
 
-    $app->get('/', function (Request $request, Response $response, array $args) {
-        $response->getBody()->write("Hello, word");
-        return $response;
-    });
+    $app->get('/', [WelcomeController::class, 'index']);
+    $app->get('/{name}', [WelcomeController::class, 'show']);
 };
