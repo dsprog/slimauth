@@ -27,5 +27,8 @@
         "psr-4": {
             "Dsprog\\": "app/"
         }
+    },
+    "require-dev": {
+        "nunomaduro/phpinsights": "^1.14"
     }
 }

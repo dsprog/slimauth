@@ -1,14 +1,9 @@
 <?php
 
 /* Global Helper Functions */
-use Jenssegers\Blade\Blade;
-use Psr\Http\Message\ResponseInterface as Response;
-
-/* Global Helper Functions */
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Illuminate\Support\Collection;
-
 /*
  * base_path
  * config_path
@@ -24,7 +19,6 @@ use Illuminate\Support\Collection;
  * data_get
  * data_set
  */
-
 if (!function_exists('base_path'))
 {
     function base_path($path = '')
@@ -32,7 +26,6 @@ if (!function_exists('base_path'))
         return  __DIR__ . "/../{$path}";
     }
 }
-
 if (!function_exists('config_path'))
 {
     function config_path($path = '')
@@ -40,7 +33,6 @@ if (!function_exists('config_path'))
         return base_path("config/{$path}");
     }
 }
-
 if (!function_exists('storage_path'))
 {
     function storage_path($path = '')
@@ -48,7 +40,6 @@ if (!function_exists('storage_path'))
         return base_path("storage/{$path}");
     }
 }
-
 if (!function_exists('public_path'))
 {
     function public_path($path = '')
@@ -56,7 +47,6 @@ if (!function_exists('public_path'))
         return base_path("public_path/{$path}");
     }
 }
-
 if (!function_exists('resources_path'))
 {
     function resources_path($path = '')
@@ -64,7 +54,6 @@ if (!function_exists('resources_path'))
         return base_path("resources/{$path}");
     }
 }
-
 if (!function_exists('routes_path'))
 {
     function routes_path($path = '')
@@ -72,7 +61,6 @@ if (!function_exists('routes_path'))
         return base_path("routes/{$path}");
     }
 }
-
 if (!function_exists('app_path'))
 {
     function app_path($path = '')
@@ -80,22 +68,18 @@ if (!function_exists('app_path'))
         return base_path("app/{$path}");
     }
 }
-
 if (!function_exists('dd'))
 {
     function dd()
     {
         array_map(function ($content) {
-            echo "<pre>";
+            echo '<pre>';
             var_dump($content);
-            echo "</pre>";
-            echo "<hr>";
+            echo '</pre><hr />';
         }, func_get_args());
-
         die;
     }
 }
-
 if (!function_exists('throw_when'))
 {
     function throw_when(bool $fails, string $message, string $exception = Exception::class)
@@ -105,7 +89,6 @@ if (!function_exists('throw_when'))
         throw new $exception($message);
     }
 }
-
 if (! function_exists('class_basename')) {
     function class_basename($class)
     {
@@ -114,7 +97,6 @@ if (! function_exists('class_basename')) {
         return basename(str_replace('\\', '/', $class));
     }
 }
-
 if (!function_exists('config'))
 {
     function config($path = null)
@@ -129,15 +111,12 @@ if (!function_exists('config'))
                 Str::after($file, '.') !== 'php',
                 'Config files must be .php files'
             );
-
-
-            data_set($config, Str::before($file, '.php') , require config_path($file));
+            data_set($config, Str::before($file, '.php'), require config_path($file));
         }
 
         return data_get($config, $path);
     }
 }
-
 if (! function_exists('data_get')) {
     /**
      * Get an item from an array or object using "dot" notation.
@@ -184,7 +163,6 @@ if (! function_exists('data_get')) {
         return $target;
     }
 }
-
 if (! function_exists('data_set')) {
     /**
      * Set an item on an array or object using dot notation.
