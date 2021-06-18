@@ -1,0 +1,14 @@
+{
+    "name": "dsprog/slimauth",
+    "description": "...",
+    "authors": [
+        {
+            "name": "Dsprog",
+            "email": "dsprog@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "^4.8",
+        "slim/psr7": "^1.4"
+    }
+}
